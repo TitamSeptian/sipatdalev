@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
+        ZanySoft\LaravelPDF\PdfServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -193,6 +194,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'PDF' => ZanySoft\LaravelPDF\Facades\PDF::class
     ])->toArray(),
 
 ];

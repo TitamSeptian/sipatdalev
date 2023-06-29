@@ -13,7 +13,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-
+    @yield('css')
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -33,7 +33,7 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>Blank Page</h1>
+                        <h1>{{ $title }}</h1>
                     </div>
 
                     <div class="section-body">
@@ -56,10 +56,10 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="{{ asset('assets/js/stisla.js') }}"></script>
-
     <!-- Template JS File -->
+    @yield('js')
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
 </body>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SuratNoDinasController;
+use App\Http\Controllers\SuratPerintahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +21,7 @@ Route::get('/', function () {
 })->middleware('guest');
 Route::get('/main', function () {
     return view('admin.dashboard');
-});;
+});
+Route::get('/surat/no_dinas', [SuratNoDinasController::class, 'create'])->name('create.no_dinas');
+Route::get('/surat/perintah', [SuratPerintahController::class, 'create'])->name('create.perintah');
+Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
