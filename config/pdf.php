@@ -14,7 +14,7 @@ return [
     'margin_header'        => 0,
     'margin_footer'        => 0,
     'orientation'          => 'P',
-    'title'                => 'Zany Soft - Laravel PDF',
+    'title'                => 'Surat',
     'author'               => '',
     'watermark'            => 'Zany Soft',
     'show_watermark'       => false,

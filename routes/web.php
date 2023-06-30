@@ -22,6 +22,11 @@ Route::get('/', function () {
 Route::get('/main', function () {
     return view('admin.dashboard');
 });
-Route::get('/surat/no_dinas', [SuratNoDinasController::class, 'create'])->name('create.no_dinas');
-Route::get('/surat/perintah', [SuratPerintahController::class, 'create'])->name('create.perintah');
-Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+Route::prefix('/surat')->group(function () {
+    Route::resource('/no_dinas', SuratNoDinasController::class);
+    Route::get('/no_dinas/{id}/download', [SuratNoDinasController::class, 'download'])->name('no_dinas.download');
+    Route::get('/no_dinas/{id}', [SuratNoDinasController::class, 'show'])->name('show.no_dinas');
+
+    Route::get('/perintah', [SuratPerintahController::class, 'create'])->name('create.perintah');
+});
+Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
