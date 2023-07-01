@@ -8,11 +8,13 @@
 
         <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
+                @method('POST')
                 @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email">
+                    <input type="email" name="email" value="{{ old('email') }}"
+                        class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Alamat Email">
+
                     @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}

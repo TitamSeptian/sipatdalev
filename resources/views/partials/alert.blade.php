@@ -18,4 +18,14 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+@elseif (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show text-left px-4"" role="alert">
+        <strong>
+            <h4>Terjadi Kesalahan !!</h4>
+        </strong><br>
+        {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 @endif

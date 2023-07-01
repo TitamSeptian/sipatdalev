@@ -31,7 +31,7 @@
             <li><a class="nav-link" href="{{ route('employee.index') }}"><i class="fas fa-user"></i>
                     <span>Pegawai</span></a></li>
             <li class="menu-header">Admin</li>
-            <li><a class="nav-link" href=""><i class="fas fa-pencil-ruler"></i>
+            <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-pencil-ruler"></i>
                     <span>User</span></a></li>
         </ul>
     </aside>
