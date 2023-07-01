@@ -86,7 +86,7 @@
     <tr>
         <td>Tanggal</td>
         <td>:</td>
-        <td>{{ $surat->tanggal }}</td>
+        <td>{{ $tanggal }}</td>
     </tr>
     <tr>
         <td>Nomor</td>

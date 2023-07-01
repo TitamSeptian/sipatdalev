@@ -16,7 +16,7 @@
                     <span>Surat</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('no_dinas.index') }}">Nota Dinas</a></li>
-                    <li><a class="nav-link" href="{{ route('create.perintah') }}">Perintah</a></li>
+                    <li><a class="nav-link" href="{{ route('perintah.index') }}">Perintah</a></li>
                 </ul>
             </li>
             {{-- <li class="nav-item dropdown">

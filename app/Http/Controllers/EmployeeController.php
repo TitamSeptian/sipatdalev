@@ -121,4 +121,13 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect()->route('employee.index')->with('success', 'Data pegawai berhasil dihapus');
     }
+
+    public function findEmployee()
+    {
+        $data = Employee::where(function ($query) {
+            $query->where('name', 'LIKE', '%' . request()->q . '%')
+                ->orWhere('nip', 'LIKE', '%' . request()->q . '%');
+        })->get();
+        return response()->json(["items" => $data], 200);
+    }
 }

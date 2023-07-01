@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +169,7 @@ return [
          */
         App\Providers\FortifyServiceProvider::class,
         ZanySoft\LaravelPDF\PdfServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -194,7 +195,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
-        'PDF' => ZanySoft\LaravelPDF\Facades\PDF::class
+        'PDF' => ZanySoft\LaravelPDF\Facades\PDF::class,
+        'Date' => Jenssegers\Date\Date::class,
     ])->toArray(),
 
 ];

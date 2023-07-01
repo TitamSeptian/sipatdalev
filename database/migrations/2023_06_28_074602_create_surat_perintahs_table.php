@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('no_surat');
             $table->text('perihal');
             $table->string('tanggal');
+            $table->uuid('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }

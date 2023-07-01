@@ -10,4 +10,10 @@ class SuratPerintah extends Model
 {
     use HasFactory, HasUuids;
     protected $table = 'surat_perintah';
+    protected $guarded = [];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

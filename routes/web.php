@@ -25,8 +25,9 @@ Route::get('/main', function () {
 Route::prefix('/surat')->group(function () {
     Route::resource('/no_dinas', SuratNoDinasController::class);
     Route::get('/no_dinas/{id}/download', [SuratNoDinasController::class, 'download'])->name('no_dinas.download');
-    Route::get('/no_dinas/{id}', [SuratNoDinasController::class, 'show'])->name('show.no_dinas');
 
-    Route::get('/perintah', [SuratPerintahController::class, 'create'])->name('create.perintah');
+    Route::resource('/perintah', SuratPerintahController::class);
+    Route::get('/perintah/{id}/download', [SuratPerintahController::class, 'download'])->name('perintah.download');
 });
 Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+Route::get('employee/find', [EmployeeController::class, 'findEmployee'])->name('employee.find');

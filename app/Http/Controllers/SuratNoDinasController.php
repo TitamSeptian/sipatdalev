@@ -65,7 +65,7 @@ class SuratNoDinasController extends Controller
             'tempat' => $request->tempat,
             'agenda' => $request->agenda,
         ]);
-        return redirect()->back();
+        return redirect()->route('no_dinas.index')->with('success', 'surat nota dinas berhasil ditambahan');
     }
 
     public function show($id)
@@ -81,7 +81,12 @@ class SuratNoDinasController extends Controller
             'margin_top' => 14,
             'margin_bottom' => 0,
         ]);
-        $pdf->loadView('pdf.no_dinas', compact('surat'), [], []);
+        \Date::setLocale('id');
+        $tanggal = \Date::parse($surat->tanggal)->format('j F Y');
+        $pdf->loadView('pdf.no_dinas', [
+            'surat' => $surat,
+            'tanggal' => $tanggal,
+        ], [], []);
         return $pdf->stream($surat->no_surat . '.pdf');
     }
 
@@ -105,7 +110,12 @@ class SuratNoDinasController extends Controller
             'margin_top' => 14,
             'margin_bottom' => 0,
         ]);
-        $pdf->loadView('pdf.no_dinas', compact('surat'), [], []);
+        \Date::setLocale('id');
+        $tanggal = \Date::parse($surat->tanggal)->format('j F Y');
+        $pdf->loadView('pdf.no_dinas', [
+            'surat' => $surat,
+            'tanggal' => $tanggal,
+        ], [], []);
         return $pdf->download($surat->no_surat . '.pdf');
     }
 }
