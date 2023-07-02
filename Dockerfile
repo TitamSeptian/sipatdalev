@@ -1,16 +1,25 @@
-FROM composer as build
+FROM php:8.1-fpm
+# Install system dependencies
+
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
+
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+
+# Install PHP dependencies
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 WORKDIR /app
-COPY . /app
-RUN composer global require hirak/prestissimo && composer install
-
-FROM php:7.3-apache-stretch
-RUN docker-php-ext-install pdo pdo_mysql
-
-EXPOSE 8080
-COPY --from=build /app /var/www/
-COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY .env.example /var/www/.env
-RUN chmod 777 -R /var/www/storage/ && \
-    echo "Listen 8080" >> /etc/apache2/ports.conf && \
-    chown -R www-data:www-data /var/www/ && \
-    a2enmod rewrite
+COPY composer.json .
+RUN composer install --no-scripts
+COPY . .
+CMD php artisan serve --host=0.0.0.0 --port 80

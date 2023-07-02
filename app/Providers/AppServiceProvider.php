@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Date::setLocale('id');
         App::setLocale('id');
+        // max length for string
+        Schema::defaultStringLength(191);
     }
 }

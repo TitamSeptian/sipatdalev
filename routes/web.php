@@ -34,8 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/perintah/{id}/download', [SuratPerintahController::class, 'download'])->name('perintah.download');
     });
 
-    Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
-    Route::get('employee/find', [EmployeeController::class, 'findEmployee'])->name('employee.find');
 
     Route::resource('/user', UserController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::resource('/employee', EmployeeController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+    Route::get('employee/find', [EmployeeController::class, 'findEmployee'])->name('employee.find');
 });
