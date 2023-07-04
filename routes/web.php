@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', function () {
         return view('admin.dashboard');
-    });
+    })->name('home');
 
     Route::prefix('/surat')->group(function () {
         Route::resource('/no_dinas', SuratNoDinasController::class);

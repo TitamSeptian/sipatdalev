@@ -8,7 +8,7 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li><a class="nav-link" href=""><i class="fas fa-fire"></i>
+            <li><a class="nav-link" href="{{ route('home') }}"><i class="fas fa-fire"></i>
                     <span>Dashboard</span></a></li>
             <li class="menu-header">Surat</li>
             <li class="nav-item dropdown">
@@ -19,14 +19,6 @@
                     <li><a class="nav-link" href="{{ route('perintah.index') }}">Perintah</a></li>
                 </ul>
             </li>
-            {{-- <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
-                    <span>Riwayat</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="">Surat No. Dinas</a></li>
-                    <li><a class="nav-link" href="">Surat Perintah</a></li>
-                </ul>
-            </li> --}}
             <li class="menu-header">Pegawai</li>
             <li><a class="nav-link" href="{{ route('employee.index') }}"><i class="fas fa-user"></i>
                     <span>Pegawai</span></a></li>
